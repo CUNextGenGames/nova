@@ -188,7 +188,7 @@ class GameScene extends Phaser.Scene {
         }
 
         // Check level progression
-        if (this.enemies.countActive(true) === 0 && !this.bossActive) {
+        if (this.enemies.countActive(true) === 0) {
             this.currentLevel++;
             if (this.currentLevel > 4) {
                 // Game win
@@ -222,7 +222,7 @@ class GameScene extends Phaser.Scene {
         powerup.setCollideWorldBounds(true);
         powerup.setVelocity(Phaser.Math.Between(-200, 200), 20);
 
-        // Boss
+        // Boss (set bossActive if spawning boss)
         if (level % 1 === 0) { // Always for demo
             this.bossActive = true;
             const boss = this.enemies.create(600, 100, 'mainframe');
